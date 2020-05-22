@@ -39,7 +39,7 @@ public class Main {
         bookService.add(meinKampfBook);
 
         System.out.println(bookService.getBookByTitle("Mein Kampf"));
-        System.out.println(genreService.getBookByGenre(historyGenre));
+        System.out.println(bookService.getBookByGenre(historyGenre));
         System.out.println(authorService.getBooksByAuthor(adolfHitler));
     }
 }

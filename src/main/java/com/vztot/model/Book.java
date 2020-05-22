@@ -18,7 +18,7 @@ public class Book {
     private Long id;
     private String title;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Author> authorList;
 
     @OneToOne
