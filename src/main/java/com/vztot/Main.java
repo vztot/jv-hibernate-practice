@@ -22,6 +22,7 @@ public class Main {
     public static void main(String[] args) {
         Author adolfHitler = new Author();
         adolfHitler.setName("Adolf Hitler");
+        authorService.add(adolfHitler);
 
         Genre historyGenre = new Genre();
         historyGenre.setGenre("History");
