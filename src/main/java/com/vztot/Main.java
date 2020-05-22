@@ -39,8 +39,8 @@ public class Main {
         meinKampfBook.setAuthorList(list);
         bookService.add(meinKampfBook);
 
-        //System.out.println(bookService.getBookByTitle("Mein Kampf"));
-        //System.out.println(bookService.getBooksByGenre(historyGenre));
+        System.out.println(bookService.getBookByTitle("Mein Kampf"));
+        System.out.println(bookService.getBooksByGenre(historyGenre));
         System.out.println(bookService.getBooksByAuthor(adolfHitler));
     }
 }
