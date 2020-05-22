@@ -1,7 +1,7 @@
 package com.vztot.dao;
 
-import java.util.List;
 import com.vztot.model.Genre;
+import java.util.List;
 
 public interface GenreDao {
     Genre add(Genre genre);

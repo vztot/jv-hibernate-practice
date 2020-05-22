@@ -1,7 +1,7 @@
 package com.vztot.dao;
 
-import java.util.List;
 import com.vztot.model.Author;
+import java.util.List;
 
 public interface AuthorDao {
     Author add(Author author);

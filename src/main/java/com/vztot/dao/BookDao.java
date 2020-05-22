@@ -1,7 +1,7 @@
 package com.vztot.dao;
 
-import java.util.List;
 import com.vztot.model.Book;
+import java.util.List;
 
 public interface BookDao {
     Book add(Book book);
