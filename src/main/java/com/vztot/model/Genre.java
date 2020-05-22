@@ -38,6 +38,11 @@ public class Genre {
     }
 
     @Override
+    public String toString() {
+        return "Genre{" + "id=" + id + ", genre='" + genre + '\'' + '}';
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(id, genre);
     }

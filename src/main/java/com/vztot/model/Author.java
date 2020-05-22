@@ -15,14 +15,6 @@ public class Author {
     private Long id;
     private String name;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
@@ -42,6 +34,11 @@ public class Author {
         Author author = (Author) o;
         return Objects.equals(id, author.id)
                 && Objects.equals(name, author.name);
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" + "id=" + id + ", name='" + name + '\'' + '}';
     }
 
     @Override

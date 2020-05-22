@@ -60,7 +60,7 @@ public class BookDaoJdbcImpl implements BookDao {
             CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
             CriteriaQuery<Book> query = criteriaBuilder.createQuery(Book.class);
             Root<Book> root = query.from(Book.class);
-            Predicate predicate = criteriaBuilder.equal(root.get("author"), author);
+            Predicate predicate = criteriaBuilder.isMember(author, root.get("authorList"));
             List<Book> books = session.createQuery(query.where(predicate)).getResultList();
             return books;
         } catch (Exception e) {
