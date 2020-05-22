@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -60,13 +59,17 @@ public class Book {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Book book = (Book) o;
-        return Objects.equals(id, book.id) &&
-                Objects.equals(title, book.title) &&
-                Objects.equals(authorList, book.authorList) &&
-                Objects.equals(genre, book.genre);
+        return Objects.equals(id, book.id)
+                && Objects.equals(title, book.title)
+                && Objects.equals(authorList, book.authorList)
+                && Objects.equals(genre, book.genre);
     }
 
     @Override
@@ -76,11 +79,11 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", authorList=" + authorList +
-                ", genre=" + genre +
-                '}';
+        return "Book{"
+                + "id=" + id
+                + ", title='" + title + '\''
+                + ", authorList=" + authorList
+                + ", genre=" + genre
+                + '}';
     }
 }
