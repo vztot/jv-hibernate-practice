@@ -1,10 +1,14 @@
 package com.vztot;
 
 import com.vztot.lib.Injector;
+import com.vztot.model.Author;
+import com.vztot.model.Book;
 import com.vztot.model.Genre;
 import com.vztot.service.AuthorService;
 import com.vztot.service.BookService;
 import com.vztot.service.GenreService;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     private static final Injector INJECTOR = Injector.getInstance("com.vztot");
@@ -16,8 +20,24 @@ public class Main {
             = (BookService) INJECTOR.getInstance(BookService.class);
 
     public static void main(String[] args) {
-        Genre drama = new Genre();
-        drama.setGenre("Drama");
-        genreService.add(drama);
+        Author adolfHitler = new Author();
+        adolfHitler.setName("Adolf Hitler");
+
+        Genre historyGenre = new Genre();
+        historyGenre.setGenre("History");
+        genreService.add(historyGenre);
+
+        Book meinKampfBook = new Book();
+        meinKampfBook.setTitle("Mein Kampf");
+        meinKampfBook.setGenre(historyGenre);
+        List<Author> list = new ArrayList<>() {
+            {
+                add(adolfHitler);
+            }
+        };
+        meinKampfBook.setAuthorList(list);
+        bookService.add(meinKampfBook);
+
+        System.out.println(bookService.getBookByTitle("Mein Kampf"));
     }
 }

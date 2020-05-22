@@ -11,6 +11,8 @@ import javax.persistence.Table;
 public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String genre;
 
     public String getGenre() {
