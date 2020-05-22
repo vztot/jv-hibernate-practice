@@ -1,16 +1,14 @@
 package com.vztot.service.impl;
 
-import java.util.List;
 import com.vztot.dao.AuthorDao;
 import com.vztot.dao.BookDao;
-import com.vztot.dao.GenreDao;
 import com.vztot.lib.Inject;
 import com.vztot.lib.Service;
 import com.vztot.model.Author;
 import com.vztot.model.Book;
-import com.vztot.model.Genre;
 import com.vztot.service.AuthorService;
-import com.vztot.service.BookService;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AuthorServiceImpl implements AuthorService {
@@ -26,7 +24,9 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public List<Author> getBookByAuthor(Author author) {
-        return bookDao;
+    public List<Book> getBooksByAuthor(Author author) {
+        return bookDao.getAll().stream()
+                .filter(book -> book.getAuthorList().contains(author))
+                .collect(Collectors.toList());
     }
 }

@@ -1,6 +1,7 @@
 package com.vztot.service.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import com.vztot.dao.AuthorDao;
 import com.vztot.dao.BookDao;
 import com.vztot.dao.GenreDao;
@@ -10,30 +11,23 @@ import com.vztot.model.Author;
 import com.vztot.model.Book;
 import com.vztot.model.Genre;
 import com.vztot.service.BookService;
+import com.vztot.service.GenreService;
 
 @Service
-public class GenreServiceImpl implements BookService {
-    @Inject
-    private BookDao bookDao;
-    @Inject
-    private AuthorDao authorDao;
+public class GenreServiceImpl implements GenreService {
     @Inject
     private GenreDao genreDao;
 
+    @Inject
+    private BookDao bookDao;
+
     @Override
-    public Book getBookByTitle(String title) {
-        return bookDao.getAll().stream()
-                .filter(book -> book.getTitle().equals(title)).findFirst()
-                .get();
+    public Genre add(Genre genre) {
+        return genreDao.add(genre);
     }
 
     @Override
-    public List<Author> getBookByTitle(Author author) {
-        return null;
-    }
-
-    @Override
-    public List<Genre> getBookByTitle(Genre genre) {
-        return null;
+    public List<Book> getBookByGenre(Genre genre) {
+        return bookDao.getAll().stream().filter(book -> book.getGenre().equals(genre)).collect(Collectors.toList());
     }
 }
