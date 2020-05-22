@@ -1,1 +1,1 @@
-# jv-hibernate-practice
+# jv-hibernate-practice [![Build Status](https://travis-ci.com/vztot/jv-hibernate-practice.svg?branch=master)](https://travis-ci.com/vztot/jv-hibernate-practice)
